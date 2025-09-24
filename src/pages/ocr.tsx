@@ -17,7 +17,7 @@ export default function OcrPage() {
         const file = e.target.files?.[0];
         if (!file) return;
 
-        // Revoke previous object URLs to prevent memory leaks
+        // Revoke previous object UfeatRLs to prevent memory leaks
         if (type === "front" && previewFront) {
             URL.revokeObjectURL(previewFront);
         } else if (type === "back" && previewBack) {

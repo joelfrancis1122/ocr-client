@@ -183,24 +183,32 @@ export default function OcrPage() {
                 </div>
 
                 {/* Results */}
-                {ocrData && (
-                    <div className="bg-white rounded-lg border border-gray-200 p-8">
-                        <div className="mb-6">
-                            <h2 className="text-xl font-medium text-gray-900 mb-2">
-                                Extraction Results
-                            </h2>
-                            <p className="text-gray-600">
-                                Data extracted from uploaded documents
-                            </p>
-                        </div>
+           {ocrData && (
+  <div className="bg-white rounded-lg border border-gray-200 p-8">
+    <div className="mb-6">
+      <h2 className="text-xl font-medium text-gray-900 mb-2">
+        Extraction Results
+      </h2>
+      <p className="text-gray-600">
+        Data extracted from uploaded documents
+      </p>
+    </div>
 
-                        <div className="bg-gray-50 rounded-lg p-6 border">
-                            <pre className="text-sm text-gray-800 whitespace-pre-wrap overflow-x-auto font-mono leading-relaxed">
-                                {JSON.stringify(ocrData, null, 2)}
-                            </pre>
-                        </div>
-                    </div>
-                )}
+    <div className="overflow-x-auto">
+      <table className="min-w-full bg-gray-50 rounded-lg border border-gray-200">
+        <tbody>
+          {Object.entries(ocrData).map(([key, value]) => (
+            <tr key={key} className="border-b border-gray-200">
+              <td className="px-4 py-2 font-medium text-gray-700">{key}</td>
+              <td className="px-4 py-2 text-gray-800">{String(value)}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  </div>
+)}
+
 
                 {/* Footer */}
                 <div className="text-center mt-16">

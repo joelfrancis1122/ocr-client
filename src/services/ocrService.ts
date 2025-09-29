@@ -3,11 +3,12 @@ export async function runOcr(frontImage: File, backImage: File) {
   formData.append("front", frontImage);
   formData.append("back", backImage);
 
-  const res = await fetch("http://localhost:3000/api/ocr", {
+  const apiUrl = import.meta.env.VITE_API_URL; 
+  const res = await fetch(`${apiUrl}/api/ocr`, {
     method: "POST",
     body: formData,
   });
-console.log(res)
+
   if (!res.ok) {
     throw new Error("Failed to run OCR");
   }

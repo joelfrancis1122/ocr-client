@@ -10,11 +10,11 @@ export async function runOcr(frontImage: File, backImage: File) {
   try {
     const res = await axios.post(`${apiUrl}/api/ocr`, formData, {
       headers: {
-        "Content-Type": "multipart/form-data", 
+        "Content-Type": "multipart/form-data",
       },
     });
 
-    return res.data.data  ; 
+    return res.data.data;
   } catch (error: any) {
     console.error("OCR request failed:", error.response || error.message);
     throw new Error("Failed to run OCR");
